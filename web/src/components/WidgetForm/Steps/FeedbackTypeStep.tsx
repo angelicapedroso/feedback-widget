@@ -9,7 +9,7 @@ export default function FeedbackTypeStep({ onFeedbackTypeChanged }: FeedbackType
   return (
     <>
       <header>
-        <span className='text-xl leading-6'>Deixe seu feedback</span>
+        <span className='text-xl leading-6 flex justify-center'>Deixe seu feedback</span>
 
         <CloseButton />
       </header>

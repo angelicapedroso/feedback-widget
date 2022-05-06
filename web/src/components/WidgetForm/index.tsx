@@ -33,18 +33,25 @@ export const feedbackTypes = {
 export type FeedbackType = keyof typeof feedbackTypes;
 
 export function WidgetForm() {
-const [feedbackType, setFeedbackType]  = useState<FeedbackType | null>(null);
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+
+  function handleRestartFeedback() {
+    setFeedbackType(null);
+  }
 
   return (
     <div className='bg-zinc-900 p-4 relative rounded-2xl mb-4 flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto '>
 
-    {
-      !feedbackType ? (
-       <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType} />
-      ) : (
-        <FeedbackContentStep  feedbackType={feedbackType} />
-      )
-    }
+      {
+        !feedbackType ? (
+          <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType} />
+        ) : (
+          <FeedbackContentStep
+            feedbackType={feedbackType}
+            onFeedbackRestartRequested={handleRestartFeedback}
+          />
+        )
+      }
 
       <footer className='text-xs text-neutral-400'>
         Feito com carinho por Angélica, através da Rocketseat
