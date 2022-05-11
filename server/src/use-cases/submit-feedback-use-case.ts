@@ -11,7 +11,7 @@ export class SubmitFeedbackUseCase {
   constructor(
     private feedbacksRepository: FeedbacksRepository,
     private mailAdapter: MailAdapter,
-  ) {}
+  ) { }
 
   async execute(request: SubmitFeedbackUseCaseRequest) {
     const { type, comment, screenshot } = request;
